@@ -1,0 +1,107 @@
+﻿@using TravelTripProject.Models.Siniflar
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+
+<body>
+
+    <div class="header-banner">
+        <div class="wrap">
+            <div class="banner">
+                <div class="indent">
+                    @*<h2 class="indent-left margin-bot">My Travel Blog</h2>*@
+                    <br />
+                    <div class="banner-left">
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <img src="~/theme/images/glass.png" alt="">
+                            </div>
+                            <div class="grid1-desc">
+                                <p>Restaurants</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <img src="~/theme/images/hotels.png" alt="">
+                            </div>
+                            <div class="grid1-desc">
+                                <p>Hotels</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <img src="~/theme/images/museum.png" alt="">
+                            </div>
+                            <div class="grid1-desc">
+                                <p>Museums</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <img src="~/theme/images/trekking.png" alt="">
+                            </div>
+                            <div class="grid1-desc">
+                                <p>Trekking</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_bottom_right_images">
+
+                        <div class="slider">
+                            <ul class="rslides" id="slider1">
+                                @foreach (var x in Model)
+                                {
+                                    <li><a href="/Blog/BlogDetay/@x.Id"><img src="@x.BlogImage" alt="" style="width:650px; height:392px;"></a></li>
+                                    
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class"content">
+        <div class="wrap">
+            <div class="wrapper">
+                <div class="con-top">
+                    <h3>Welcome to My Travel Blog!</h3>
+                    <p>
+                        I am Maartje and I’m turning 19 this year. I am from Amsterdam, he Netherlands, were I live with my two best friends in our apartment. For a 18 year old girl I am pretty sure that I can say that I have seen quite some things around the world already and made my fair share of trips. Luckily enough I have two parents who both love to travel, so from little on I got to travel the world.
+                        Those trips made me the person I am today and also created my passion for traveling. To do something more permanent with that I decided to go study International Tourism and Management at the Inholland Diemen University of Applied Science.
+                    </p>
+                </div>
+
+                <div style=" display: table;margin-right: auto;margin-left: auto;"><div class="padding3" style="margin:0 0 0 0; text-align:center" ><h4>My Latest Adventures</h4></div></div>
+
+                <div class="clear"></div>
+                @Html.Action("Partial1", "Home")
+                <div class="grids">
+                    <div class="box1">
+                        @Html.Action("Partial3", "Home")
+                        <div class="padding1">
+                            <h4>Most Liked Trips</h4>
+                            @Html.Action("Partial4", "Home")
+
+                            @Html.Action("Partial5", "Home")
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+

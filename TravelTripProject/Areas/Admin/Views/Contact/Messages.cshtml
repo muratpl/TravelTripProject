@@ -1,0 +1,51 @@
+﻿@using TravelTripProject.Models.Siniflar
+@model List<Contact>
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["Delete"] == "The message successfully deleted...")
+{
+    <br />
+    <div class="alert alert-success">@TempData["Delete"]</div>
+}
+
+<h2>Messages</h2>
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name & Surname</th>
+            <th>Mail</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Phone Number</th>
+            <th>Date</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td style="width: 5%">@x.Id</td>
+                <td style="width: 10%">@x.NameSurname</td>
+                <td style="width: 5%">@x.Mail</td>
+                <td style="width: 5%">@x.Subject</td>
+                <td style="width: 70%">@x.Message</td>
+                <td style="width: 5%">@x.Phone</td>
+                <td style="width: 5%">@x.Date</td>
+
+                <td style="width: 5%"><a href="/Admin/Contact/Delete/@x.Id" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,172 @@
+﻿
+@model TravelTripProject.Models.Siniflar.BlogComment
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <style>
+        .commentDiv {
+        }
+
+        .commentThumb {
+            display: inline !important;
+            width: 100% !important;
+        }
+
+        .commentText {
+            display: inline-block !important;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+
+                <div class="single-grid">
+                    @foreach (var x in Model.relatedBlog)
+                    {
+                        <h1>@x.Title</h1>
+
+                        <img src="@x.BlogImage" alt="" />
+
+                        <p>
+                            @x.Description
+                        </p>
+                    }
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                <div class="col-md-12" style="padding:0;">
+                    <div class="be-comment-block">
+                        <h1 class="comments-title">Comments (@Model.lastCommentsAll.Count())</h1>
+
+                        @foreach (var x in Model.lastCommentsAll)
+                        {<div class="be-comment">
+                                <div class="be-img-comment">
+                                    @*<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">*@
+                                    <img src="~/theme2/images/avatar.png" alt="" class="be-ava-comment">
+                                </div>
+                                <div class="be-comment-content">
+
+                                    <span class="be-comment-name">
+                                        @x.Username
+                                    </span>
+                                    <span class="be-comment-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        @x.Date.ToString()
+                                        @*May 27, 2015 at 3:14am*@
+                                    </span>
+
+                                    <p class="be-comment-text">
+                                        @x.CommentText
+                                    </p>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+
+                        }
+
+
+
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+
+
+
+
+
+
+                @Html.Action("NewComment", "Blog")
+
+                <br /><br />
+
+
+
+
+
+            </div>
+
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        @foreach (var y in Model.lastBlogs5)
+                        {
+                            <li><a href="/Blog/BlogDetay/@y.Id">@y.Title</a></li>
+                        }
+
+
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>RECENT COMMENTS</h3>
+                    <ul>
+                        @foreach (var y in Model.lastComments5)
+                        {
+                            <li>
+                                <a href="/Blog/BlogDetay/@y.BlogID/#comment1">
+                                    @try
+                                    {@y.CommentText.Substring(0, 40)}
+                                catch
+                                {@y.CommentText}
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+

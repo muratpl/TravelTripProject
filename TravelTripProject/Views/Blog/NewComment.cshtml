@@ -1,0 +1,20 @@
+﻿@{
+    if (TempData["Comment"] == "Your comment has been sent successfully...")
+    {
+        <div class="alert alert-success">@TempData["Comment"]</div>
+    }
+}
+
+
+
+<div class="content-form">
+    <h3>Leave a comment</h3>
+    <form method="post">
+        <input type="hidden" placeholder="BlogID" name="BlogID" value="@ViewBag.BlogId" />
+        <input type="text" placeholder="Username" name="Username" required />
+        <input type="text" placeholder="Mail" name="Mail" required />
+        <textarea placeholder="Message" name="CommentText" rows="4" cols="50"> </textarea>
+        <input type="hidden" placeholder="CommentLike" name="CommentLike" required />
+        <input type="submit" value="SEND" />
+    </form>
+</div>

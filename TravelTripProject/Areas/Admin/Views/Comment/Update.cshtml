@@ -1,0 +1,53 @@
+﻿@model TravelTripProject.Models.Siniflar.Comment
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Comment Update Page</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(x => x.Id)
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @ReadOnly = "Readonly" })
+
+    <br />
+
+
+    @Html.LabelFor(x => x.Username)
+    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(x => x.Date)
+    @Html.EditorFor(x => x.Date, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br />
+
+    @Html.LabelFor(x => x.CommentText)
+    @Html.TextAreaFor(x => x.CommentText, 15, 1, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(x => x.BlogID, "Comment Yapılan Blog")
+    @Html.TextBoxFor(x => x.BlogID, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(x => x.CommentLike)
+    @Html.TextBoxFor(x => x.CommentLike, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-primary">Güncelle</button>
+}
+
+<br /> <br />
+
+

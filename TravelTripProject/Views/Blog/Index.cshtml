@@ -1,0 +1,137 @@
+﻿
+@using TravelTripProject.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model BlogComment
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <link href="~/theme2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/theme2/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/theme/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="~/theme2/js/move-top.js"></script>
+    <script type="text/javascript" src="~/theme2/js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+    <!---->
+
+</head>
+<body>
+
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                @foreach (var x in Model.lastBlogsAll)
+                {
+                    <div class="single-grid">
+                        <div class="col-md-4" style="float:left">
+                            <a href="/Blog/BlogDetay/@x.Id"><img src="@x.BlogImage" width="210px" height="180px" alt="" /></a>
+
+                        </div>
+
+                        <div class="col-md-8" style="float:left">
+                            <a id="postTitle" href="/Blog/BlogDetay/@x.Id"><h3>@x.Title</h3></a>
+                            <p>
+                                @try
+                                {@x.Description.Substring(0, 300)}
+                            catch
+                            {@x.Description}
+                            </p>
+                        </div>
+
+                        <div style="clear:both"></div>
+
+                        <div class="col-md-12">
+                            <hr style="height:0.1px;border-width:0;color:#00aab9;background-color:#00aab9">
+                        </div>
+
+                        <br /><br />
+
+                    </div>
+
+                    <br />
+                }
+
+                @Html.PagedListPager((IPagedList)Model.lastBlogsAll, p => Url.Action("Index" , new {p}),new PagedListRenderOptions
+           {
+               LiElementClasses = new List<string>
+               {"page-link"}
+           })
+
+
+
+
+            </div>
+
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        @foreach (var y in Model.lastBlogs5)
+                        {
+                            <li><a href="/Blog/BlogDetay/@y.Id">@y.Title</a></li>
+                        }
+
+
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>RECENT COMMENTS</h3>
+                    <ul>
+                        @foreach (var y in Model.lastComments5)
+                        {
+                            <li>
+                                <a href="/Blog/BlogDetay/@y.BlogID/#comment1">
+                                    @try
+                                    {@y.CommentText.Substring(0, 40)}
+                                catch
+                                {@y.CommentText}
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+

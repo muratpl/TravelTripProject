@@ -1,0 +1,17 @@
+﻿@using TravelTripProject.Models.Siniflar
+@model List<Blog>
+
+<div class="padding">
+    <h4>This Week's Top 10</h4>
+    <ul class="list list-pad">
+
+        @{ int i = 0;}
+        @foreach (var x in Model)
+        {
+
+            <li class="list-bg"><span>@{i++;}@i.</span><a href="/Blog/BlogDetay/@x.Id">@x.Title</a></li>
+        }
+
+    </ul>
+    <a href="/Blog" class="link1">See them all</a>
+</div>

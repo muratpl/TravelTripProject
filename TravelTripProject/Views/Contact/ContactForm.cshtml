@@ -1,0 +1,50 @@
+﻿
+@model TravelTripProject.Models.Siniflar.Contact
+
+<form class="cmxform" id="ContactForm" method="post">
+    <div class="form">
+        @Html.EditorFor(model => model.NameSurname, new { htmlAttributes = new { @class = "textbox", @placeholder = "Name:" } })
+        @Html.ValidationMessageFor(model => model.NameSurname, "", new { @class = "text-danger" })
+        <br /><br />
+
+        @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "textbox", @placeholder = "Email:" } })
+        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+
+        <br /><br />
+        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "textbox", @placeholder = "Phone:" } })
+        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+        <br /><br />
+        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "textbox", @placeholder = "Subject:" } })
+        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form1">
+
+        <div>
+            @*<textarea placeholder="Message:" name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}"></textarea>*@
+            
+            @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @placeholder = "Message:" } })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @*<p><span class="read">Submit</span></p>*@
+            <input type="submit" class="read" value="Submit" />
+        </div>
+
+        @if (TempData["Message"] == "Your message has been sent successfully...")
+        {
+            <div class="alert alert-success">@TempData["Message"]</div>
+        }
+
+    </div>
+
+
+</form>
+
+
+
+
+
+

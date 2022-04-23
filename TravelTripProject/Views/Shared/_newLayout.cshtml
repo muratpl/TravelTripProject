@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Free Easy-Trip Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/theme2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/theme2/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/theme/css/style.css" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/theme/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/theme/js/jquery.min.js"></script>
+    <script src="~/theme/js/responsiveslides.min.js"></script>
+
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="wrapLogo">
+            <div class="logo"><a href="/Home"><img src="~/theme/images/logo2.png"  alt="" /></a></div>
+            
+            <div class="logoText"><h1>My Travel Blog</h1></div>
+
+
+            <div class="con-right">
+                <div class="con-right-img">
+                    <img src="~/theme/images/contact.png" alt="">
+                </div>
+                <div class="con-right-desc">
+                    <p>Contact : +91 00000-55555</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="wrap">
+            <ul id="nav">
+                <li><a href="/Home">Home</a></li>
+                <li><a class="hsubs" href="/Blog">Blog</a></li>
+                <li><a class="hsubs" href="/About">About</a></li>
+                @*<li>
+                    <a class="hsubs" href="destinations.html">Rehber</a>
+                    <ul class="subs">
+                        <li><a href="#">Otels</a></li>
+                        <li><a href="#">Restoranlar</a></li>
+                        <li><a href="#">Müzeler</a></li>
+                    </ul>
+                </li>*@
+                <li><a href="/Contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class"content">
+        @RenderBody()
+    </div>
+    <div class="footer-bottom">
+        <div class="wrap">
+            <div class="copy">
+                <p>&copy; All Rights Reserved | Design by <a href="http://muratpala.com">muratpala.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

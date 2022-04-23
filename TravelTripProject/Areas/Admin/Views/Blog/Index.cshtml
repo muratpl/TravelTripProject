@@ -1,0 +1,59 @@
+﻿@using TravelTripProject.Models.Siniflar
+@model List<Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["Create"] == "Blog post created successfully...")
+{
+    <br />
+    <div class="alert alert-success">@TempData["Create"]</div>
+}
+else if (TempData["Update"] == "Blog post successfully updated...")
+{
+    <br />
+    <div class="alert alert-success">@TempData["Update"]</div>
+}
+else if (TempData["Delete"] == "Blog post deleted successfully...")
+                {
+<br />
+<div class="alert alert-success">@TempData["Delete"]</div>
+}
+
+<h2>Blog Posts</h2>
+<br />
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Delete</th>
+            <th>Edit</th>
+            <th>Preview</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td style="width: 5%" >@x.Id</td>
+                <td style="width: 70%">@x.Title</td>
+                <td style="width: 5%"><a href="/Admin/Blog/Delete/@x.Id" class="btn btn-danger">Delete</a></td>
+                <td style="width: 5%"><a href="/Admin/Blog/Update/@x.Id" class="btn btn-warning">Edit</a></td>
+                <td style="width: 5%"><a href="/Blog/BlogDetay/@x.Id" class="btn btn-info">Preview</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a href="/Admin/Blog/Create" class="btn btn-primary">Create</a>
+<br />
+<br />

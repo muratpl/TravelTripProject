@@ -1,0 +1,54 @@
+﻿@using TravelTripProject.Models.Siniflar
+@model List<Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["DeleteComment"] == "Comment successfully deleted...")
+{
+    <br />
+    <div class="alert alert-success">@TempData["DeleteComment"]</div>
+}
+else if (TempData["UpdateComment"] == "Comment successfully updated...")
+{
+
+    <br />
+    <div class="alert alert-success">@TempData["UpdateComment"]</div>
+}
+
+<h2>Blog Comments</h2>
+<br />
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Mail</th>
+        <th>Username</th>
+        <th>Comment</th>
+        <th>Blog</th>
+        <th>Date</th>
+        <th>Like Count</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Mail</td>
+            <td>@x.Username</td>
+            <td>@x.CommentText</td>
+            <td>@x.blog.Title</td>
+            <td>@x.Date</td>
+            <td>@x.CommentLike</td>
+            <td><a href="/Admin/Comment/Update/@x.Id" class="btn btn-warning">Edit</a></td>
+            <td><a href="/Admin/Comment/Delete/@x.Id" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+
+</table>
+

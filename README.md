@@ -8,6 +8,7 @@ This project was prepared in ASP.NET MVC 5 framework with *Code First* approach.
 
 - [ ASP.NET MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started)  - A web framework based on Model-View-Controller (MVC) architecture.
 - [Entity Framework (EF)](https://docs.microsoft.com/en-us/ef/)  - An open source object–relational mapping (ORM) framework for ADO NET.
+- [MSSQL](https://www.microsoft.com/en-us/download/details.aspx?id=55994)  - A suite of database software published by Microsoft.
 - [Bootstrap 4](https://getbootstrap.com/)  - A free front-end framework for faster and easier web development
 
 ### Used Technologies

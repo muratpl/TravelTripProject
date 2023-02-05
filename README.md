@@ -30,7 +30,7 @@ This project was prepared in ASP.NET MVC 5 framework with *Code First* approach.
 See also the list of  [contributors](https://github.com/muratpl/eCommerce/contributors)  who participated in this project.
 
 ## Screenshots
-You can also see the [live version](http://traveltripblog.zulaman.com/) of the site and [admin panel](http://traveltripblog.zulaman.com/Admin/Login) (Username: "Shaku", Pasword:"123")
+You can also see the [live version](http://traveltripblog.muratpala.fun/) of the site and [admin panel](http://traveltripblog.muratpala.fun/Admin/Login) (Username: "Shaku", Pasword:"123")
 
 ![Image](https://i.imgur.com/Dc2ovAo.png)
 
